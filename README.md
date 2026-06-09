@@ -8,7 +8,7 @@ The tech stack that this project uses is:
 
 - Frontend: Tauri
 - Backend: Rust
-- Database: SurrealDB
+- Database: SurrealDB (embedded)
 - LLM platform: Llama.cpp
-- SLM: 
-- Embedder: 
+- SLM: Qwen/Qwen2.5-3B
+- Embedder: nomic-ai/nomic-embed-text-v1.5
