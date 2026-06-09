@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import '@/index.css'
+import './index.css'
 
 // Force dark mode for the entire app (EVE-style)
 document.documentElement.classList.add('dark')

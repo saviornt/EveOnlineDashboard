@@ -8,11 +8,11 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Plus, Send, User, TrendingUp, Factory, ShoppingCart, Package, MessageCircle } from 'lucide-react';
 
 // shadcn/ui style imports (adjust path if your components/ui lives elsewhere)
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { ScrollArea } from '@/components/ui/scroll-area';
+import { Button } from './components/ui/button';
+import { Input } from './components/ui/input';
+import { Tabs, TabsList, TabsTrigger } from './components/ui/tabs';
+import { Avatar, AvatarFallback, AvatarImage } from './components/ui/avatar';
+import { ScrollArea } from './components/ui/scroll-area';
 
 // Types
 interface Character {
