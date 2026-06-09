@@ -5,12 +5,7 @@ description = "A Tauri App"
 authors = ["saviornt"]
 edition = "2021"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [lib]
-# The `_lib` suffix may seem redundant but it is necessary
-# to make the lib name unique and wouldn't conflict with the bin name.
-# This seems to be only an issue on Windows, see https://github.com/rust-lang/cargo/issues/8519
 name = "dashboard_app_lib"
 crate-type = ["staticlib", "cdylib", "rlib"]
 
@@ -18,8 +13,37 @@ crate-type = ["staticlib", "cdylib", "rlib"]
 tauri-build = { version = "2", features = [] }
 
 [dependencies]
+# Web framework and async runtime
 tauri = { version = "2", features = [] }
 tauri-plugin-opener = "2"
+tokio = { version = "1", features = ["full"] }
+
+# Embedded database - SurrealDB 3.1 with persistent RocksDB engine
+surrealdb = { version = "3.1", features = ["kv-rocksdb"] }
+
+# Error handling (anyhow for binaries; switch to thiserror in libraries later)
+anyhow = "1.0"
+
+# Logging (structured, JSON-capable, production standard)
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "json"] }
+
+# Serialization (required for Axum JSON extractors/responses and SurrealDB records)
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 
+# Cross-platform application data directory resolution
+directories = "5.0"
+
+# HTTP client + middleware (will be used by esi/ module for ESI calls)
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls"] }
+
+[profile.release]
+panic = "abort"
+codegen-units = 1
+lto = true
+opt-level = "s"
+strip = true
+
+[profile.dev]
+opt-level = 1

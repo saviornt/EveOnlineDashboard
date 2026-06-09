@@ -14,7 +14,7 @@ export default defineConfig(async () => ({
   plugins: [react()],
   resolve: {
     alias: {
-      "@": resolve(__dirname, "./frontend"),
+      "@": resolve(__dirname, "./"),
     },
   },
 

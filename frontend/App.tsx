@@ -8,11 +8,11 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Plus, Send, User, TrendingUp, Factory, ShoppingCart, Package, MessageCircle } from 'lucide-react';
 
 // shadcn/ui style imports (adjust path if your components/ui lives elsewhere)
-import { Button } from './components/ui/button';
-import { Input } from './components/ui/input';
-import { Tabs, TabsList, TabsTrigger } from './components/ui/tabs';
-import { Avatar, AvatarFallback, AvatarImage } from './components/ui/avatar';
-import { ScrollArea } from './components/ui/scroll-area';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { ScrollArea } from '@/components/ui/scroll-area';
 
 // Types
 interface Character {
@@ -427,7 +427,7 @@ export default function App() {
 
       {/* Primary Tab Bar */}
       <div className="border-b border-zinc-800 bg-zinc-950 px-4">
-        <Tabs value={activeTab} onValueChange={(v) => setActiveTab(v as TabType)} className="w-full">
+        <Tabs value={activeTab} onValueChange={(v: string) => setActiveTab(v as TabType)} className="w-full">
           <TabsList className="bg-transparent p-0 h-12">
             {(['Character', 'Analytics', 'Industry', 'Market', 'Assets'] as const).map((tab) => (
               <TabsTrigger
